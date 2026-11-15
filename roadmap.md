@@ -1,5 +1,5 @@
 # Roadmap
-- [x] Catalogue, bag, checkout, home, shop, collections, product pages
-- [ ] Our Story, Contact, Wishlist, Account pages
-- [ ] Verify build and key flows
-- [ ] Suggest next steps after remix (user question)
+- [x] Full storefront, bag, checkout, account, about, contact, wishlist
+- [x] Verified order flow end to end
+- [ ] Real products, photos, prices, founder story, email (waiting on Summer)
+- [ ] Card payments (waiting on payment provider connection)
