@@ -72,3 +72,15 @@ export const useCart = create<CartState>()(
 );
 
 export const cartCount = (lines: CartLine[]) => lines.reduce((n, l) => n + l.quantity, 0);
+
+import { useEffect, useState } from "react";
+
+/** True once the saved bag has been restored from this browser. */
+export function useCartHydrated() {
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    if (useCart.persist.hasHydrated()) setReady(true);
+    return useCart.persist.onFinishHydration(() => setReady(true));
+  }, []);
+  return ready;
+}
