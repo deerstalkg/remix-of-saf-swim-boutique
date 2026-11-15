@@ -28,7 +28,7 @@ const listSchema = z.object({
 });
 
 export const listProducts = createServerFn({ method: "GET" })
-  .inputValidator((input: z.input<typeof listSchema>) => listSchema.parse(input ?? {}))
+  .validator((input: z.input<typeof listSchema>) => listSchema.parse(input ?? {}))
   .handler(async ({ data }): Promise<ProductSummary[]> => {
     const sb = createPublicClient();
     let q = sb.from("products").select(PRODUCT_SUMMARY_COLUMNS);
@@ -58,7 +58,7 @@ export const listProducts = createServerFn({ method: "GET" })
   });
 
 export const getCollection = createServerFn({ method: "GET" })
-  .inputValidator((input: { slug: string }) => z.object({ slug: z.string().max(80) }).parse(input))
+  .validator((input: { slug: string }) => z.object({ slug: z.string().max(80) }).parse(input))
   .handler(async ({ data }) => {
     const sb = createPublicClient();
     const { data: row, error } = await sb.from("collections").select("*").eq("slug", data.slug).maybeSingle();
@@ -73,7 +73,7 @@ export const getCollection = createServerFn({ method: "GET" })
   });
 
 export const getProduct = createServerFn({ method: "GET" })
-  .inputValidator((input: { slug: string }) => z.object({ slug: z.string().max(80) }).parse(input))
+  .validator((input: { slug: string }) => z.object({ slug: z.string().max(80) }).parse(input))
   .handler(async ({ data }) => {
     const sb = createPublicClient();
     const { data: row, error } = await sb.from("products").select("*").eq("slug", data.slug).maybeSingle();

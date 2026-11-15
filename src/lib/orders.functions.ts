@@ -39,7 +39,7 @@ export type CreateOrderResult =
  * taken here; a payment provider will attach to this order once connected.
  */
 export const createOrder = createServerFn({ method: "POST" })
-  .inputValidator((input: CreateOrderInput) => orderSchema.parse(input))
+  .validator((input: CreateOrderInput) => orderSchema.parse(input))
   .handler(async ({ data }): Promise<CreateOrderResult> => {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
