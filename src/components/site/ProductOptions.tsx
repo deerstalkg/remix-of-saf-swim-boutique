@@ -19,7 +19,7 @@ export function ProductOptions({
   onColourChange?: (c: string) => void;
 }) {
   const add = useCart((s) => s.add);
-  const [colour, setColour] = useState<string | null>(initialColour ?? product.colours[0]?.name ?? null);
+  const [colour, setColour] = useState<string | null>(initialColour ?? product.colours[0]?.name ?? null as string | null);
   const [size, setSize] = useState<string | null>(product.sizes.length === 1 ? product.sizes[0] : null);
   const [qty, setQty] = useState(1);
   const [error, setError] = useState<string | null>(null);

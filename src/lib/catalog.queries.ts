@@ -3,11 +3,11 @@ import { getCollection, getProduct, listCategories, listCollections, listProduct
 import type { SortOption } from "./catalog-types";
 
 export interface ProductFilters {
-  category?: string;
-  collection?: string;
-  sort?: SortOption;
+  category?: string | undefined;
+  collection?: string | undefined;
+  sort?: SortOption | undefined;
   bestsellers?: boolean;
-  search?: string;
+  search?: string | undefined;
   limit?: number;
 }
 

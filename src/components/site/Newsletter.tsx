@@ -18,7 +18,7 @@ export function Newsletter() {
     e.preventDefault();
     const parsed = emailSchema.safeParse(email);
     if (!parsed.success) {
-      setError(parsed.error.issues[0].message);
+      setError(parsed.error.issues[0]?.message ?? "Invalid email");
       return;
     }
     setError(null);

@@ -104,7 +104,7 @@ function ProductPage() {
             <AnimatePresence mode="wait">
               <motion.img
                 key={active}
-                src={images[active]}
+                src={images[active] ?? ""}
                 alt={`${product.name} — image ${active + 1}`}
                 width={1024}
                 height={1280}

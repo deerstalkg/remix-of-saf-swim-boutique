@@ -101,8 +101,8 @@ function Contact() {
               <div className="sm:col-span-2">{f("subject", "Subject (optional)")}</div>
               <div className="sm:col-span-2">
                 <Label htmlFor="c-message" className="eyebrow text-muted-foreground">Message</Label>
-                <Textarea id="c-message" rows={6} value={v.message} onChange={(e) => setV({ ...v, message: e.target.value })} aria-invalid={!!errors.message} className="mt-2 rounded-3xl bg-background px-5 py-4" />
-                {errors.message && <p className="mt-1.5 pl-5 text-xs text-destructive">{errors.message}</p>}
+                <Textarea id="c-message" rows={6} value={v.message} onChange={(e) => setV({ ...v, message: e.target.value })} aria-invalid={!!errors["message"]} className="mt-2 rounded-3xl bg-background px-5 py-4" />
+                {errors["message"] && <p className="mt-1.5 pl-5 text-xs text-destructive">{errors["message"]}</p>}
               </div>
               <Button type="submit" size="lg" className="sm:col-span-2" disabled={state === "sending"}>
                 <Send /> {state === "sending" ? "Sending…" : "Send message"}

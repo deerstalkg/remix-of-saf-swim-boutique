@@ -47,13 +47,13 @@ function AuthForm() {
   const [busy, setBusy] = useState(false);
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (password.length < 8) return toast.error("Password must be at least 8 characters");
+    if (password.length < 8) { toast.error("Password must be at least 8 characters"); return; }
     setBusy(true);
     const res = mode === "in"
       ? await supabase.auth.signInWithPassword({ email, password })
       : await supabase.auth.signUp({ email, password, options: { emailRedirectTo: `${window.location.origin}/account` } });
     setBusy(false);
-    if (res.error) return toast.error(res.error.message);
+    if (res.error) { toast.error(res.error.message); return; }
     if (mode === "up" && !res.data.session) toast.success("Check your email to confirm your account");
   };
   return (

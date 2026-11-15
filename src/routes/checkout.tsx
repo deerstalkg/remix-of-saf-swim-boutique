@@ -59,13 +59,13 @@ function CheckoutPage() {
   });
   const [errors, setErrors] = useState<Errors>({});
   const methods = shippingMethodsFor(values.country);
-  const [method, setMethod] = useState<ShippingMethodId>(methods[0].id);
+  const [method, setMethod] = useState<ShippingMethodId>(methods[0]?.id ?? "uk-standard");
   const [submitting, setSubmitting] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
   const [placed, setPlaced] = useState<{ orderNumber: string; totalPence: number } | null>(null);
 
   useEffect(() => {
-    if (!methods.some((m) => m.id === method)) setMethod(methods[0].id);
+    if (!methods.some((m) => m.id === method)) setMethod(methods[0]?.id ?? "international");
   }, [values.country]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
