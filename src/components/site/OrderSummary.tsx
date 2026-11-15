@@ -12,7 +12,7 @@ export function OrderSummary({
   lines: CartLine[];
   subtotalPence: number;
   shippingPence: number | null;
-  shippingLabel?: string;
+  shippingLabel?: string | undefined;
   children?: ReactNode;
 }) {
   return (

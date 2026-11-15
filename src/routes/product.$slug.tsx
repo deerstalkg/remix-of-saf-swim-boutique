@@ -104,7 +104,7 @@ function ProductPage() {
             <AnimatePresence mode="wait">
               <motion.img
                 key={active}
-                src={images[active]}
+                src={images[active] ?? ""}
                 alt={`${product.name} — image ${active + 1}`}
                 width={1024}
                 height={1280}
@@ -112,7 +112,7 @@ function ProductPage() {
                 animate={{ opacity: 1, scale: zoom ? 1.8 : 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: zoom ? 0.3 : 0.7, ease: [0.22, 1, 0.36, 1] }}
-                style={zoom ? { transformOrigin: `${zoom.x}% ${zoom.y}%` } : undefined}
+                style={zoom ? { transformOrigin: `${zoom.x}% ${zoom.y}%` } : {}}
                 className="absolute inset-0 h-full w-full object-cover"
               />
             </AnimatePresence>

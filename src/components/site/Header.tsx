@@ -48,7 +48,7 @@ export function Header() {
     "relative inline-flex h-10 w-10 items-center justify-center rounded-full transition duration-500 ease-luxe focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
     light ? "hover:bg-ivory/15" : "hover:bg-secondary",
   );
-  const navLink = "link-luxe eyebrow py-2";
+  const navLink = "link-luxe eyebrow whitespace-nowrap py-2";
 
   return (
     <>
@@ -77,7 +77,7 @@ export function Header() {
         )}
       >
         <div className="mx-auto grid h-[88px] max-w-[1500px] grid-cols-[1fr_auto_1fr] items-center px-5 md:px-10">
-          <nav className="hidden items-center gap-9 lg:flex" aria-label="Main">
+          <nav className="hidden items-center gap-6 lg:flex xl:gap-9" aria-label="Main">
             <Link to="/" className={navLink} activeOptions={{ exact: true }}>Home</Link>
             <Link to="/shop" className={navLink}>Shop</Link>
             <div className="relative" onMouseEnter={() => setMenuOpen(true)} onMouseLeave={() => setMenuOpen(false)}>

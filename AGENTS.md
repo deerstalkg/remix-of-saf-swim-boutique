@@ -28,3 +28,9 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- Catalogue (products, collections, variants/stock) lives in the database; public reads go through server functions in `src/lib/catalog.functions.ts` so content is editable without code changes.
+- Orders are created only by the `createOrder` server function, which recomputes prices, stock and shipping server-side; orders start as `pending_payment` and a payment provider attaches later.
+- Shipping rules live in `src/lib/shipping.ts` (shared by bag, checkout and server) and are covered by `shipping.test.ts`.
+- Editable brand copy and links live in `src/lib/site-config.ts`.
